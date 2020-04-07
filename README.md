@@ -4,9 +4,6 @@ Ataque Duplo is a BJJ Academy based in Hannover Germany, this application is dev
 
 ## Config
 
-To ensure this application runs correctly, ensure the following configuration is added
-
-### DB Config
-
-Ensure the following file is created: `config/default.json` the file requires the following configuration:
-`{ "mongoURI": "YOUR_CONNECTION_STRING }`
+To ensure this application runs correctly, ensure the following file is added to the project with the below configuration
+: `config/default.json` the file requires the following configuration:
+`{ "mongoURI": "YOUR_CONNECTION_STRING , "jwtSecret": "YOU_JWT_TOKEN" }`
