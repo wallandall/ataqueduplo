@@ -52,6 +52,8 @@ router.post(
       skills,
       bio,
       dob,
+      current_weight,
+      goal_weight,
       youtube,
       twitter,
       instagram,
@@ -70,6 +72,8 @@ router.post(
     }
     if (bio) profileFields.bio = bio;
     if (dob) profileFields.dob = dob;
+    if (current_weight) profileFields.current_weight = current_weight;
+    if (goal_weight) profileFields.goal_weight = goal_weight;
 
     /// Build social object
     profileFields.social = {};

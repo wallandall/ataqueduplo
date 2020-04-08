@@ -29,6 +29,12 @@ const ProfileSchema = new mongoose.Schema({
   dob: {
     type: Date,
   },
+  current_weight: {
+    type: Number,
+  },
+  goal_weight: {
+    type: Number,
+  },
   grade: [
     {
       belt: {
