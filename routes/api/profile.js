@@ -8,7 +8,7 @@ const normalize = require('normalize-url');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
-//const Post = require('../../models/Post');
+const Post = require('../../models/Post');
 
 router.get('/me', auth, async (req, res) => {
   try {
@@ -128,7 +128,7 @@ router.get('/user/:user_id', async (req, res) => {
 router.delete('/', auth, async (req, res) => {
   try {
     // Remove user posts
-    //await Post.deleteMany({ user: req.user.id });
+    await Post.deleteMany({ user: req.user.id });
     // Remove profile
     await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user

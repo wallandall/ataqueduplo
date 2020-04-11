@@ -2,6 +2,9 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import { connect } from 'react-redux';
+import { deleteBelt } from '../../redux/actions/profile';
+
 import Black from './belts/Black.svg';
 import Brown from './belts/Brown.svg';
 import Purple from './belts/Purple.svg';
@@ -9,7 +12,7 @@ import Blue from './belts/Blue.svg';
 import White from './belts/White.svg';
 import './belts.styles.css';
 
-const Belts = ({ grade }) => {
+const Belts = ({ grade, deleteBelt }) => {
   const belts = grade.map((b) => (
     <div className="belt" key={b._id}>
       <div>
@@ -63,7 +66,9 @@ const Belts = ({ grade }) => {
         </p>
       </div>
       <div className="belt_button ">
-        <button className="btn btn-danger ">Delete</button>
+        <button onClick={() => deleteBelt(b._id)} className="btn btn-danger ">
+          Delete
+        </button>
       </div>
     </div>
   ));
@@ -77,6 +82,7 @@ const Belts = ({ grade }) => {
 
 Belts.prototype = {
   grade: PropTypes.array.isRequired,
+  deleteBelt: PropTypes.func.isRequired,
 };
 
-export default Belts;
+export default connect(null, { deleteBelt })(Belts);
