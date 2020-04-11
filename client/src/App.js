@@ -7,7 +7,8 @@ import Login from './components/auth/login.component';
 import Register from './components/auth/register.component';
 import Alert from './components/alert/alert.component';
 import Dashboard from './components/dashboard/dasboard.component';
-import createProfile from './components/profile-forms/create-profile.component';
+import CreateProfile from './components/profile-forms/create-profile.component';
+import EditProfile from './components/profile-forms/edit-profile.component';
 import PrivateRoute from './components/routing/private-route.component';
 
 import { Provider } from 'react-redux';
@@ -16,7 +17,6 @@ import { loadUser } from './redux/actions/auth';
 import setAuthToken from './redux/utils/setAuthToken';
 
 import './App.css';
-import CreateProfile from './components/profile-forms/create-profile.component';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -42,6 +42,11 @@ const App = () => {
                 exact
                 path="/create-profile"
                 component={CreateProfile}
+              />
+              <PrivateRoute
+                exact
+                path="/edit-profile"
+                component={EditProfile}
               />
             </Switch>
           </section>

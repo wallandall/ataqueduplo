@@ -8,7 +8,7 @@ import './navbar.styles.css';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
-    <ul>
+    <Fragment>
       <li>
         <Link to="/profiles">Students</Link>
       </li>
@@ -27,21 +27,18 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           <span className="hide-sm">Logout</span>
         </a>
       </li>
-    </ul>
+    </Fragment>
   );
 
   const guestLinks = (
-    <ul>
-      <li>
-        <Link to="/profiles">Developers</Link>
-      </li>
+    <Fragment>
       <li>
         <Link to="/register">Register</Link>
       </li>
       <li>
         <Link to="/login">Login</Link>
       </li>
-    </ul>
+    </Fragment>
   );
 
   return (
@@ -49,24 +46,17 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <h1>
         <Link to="/">Ataque Duplo</Link>
       </h1>
-      {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-      )}
-
-      {/* <ul>
-        <li>
-          <Link to="/about">About Us</Link>
-        </li>
-        <li>
-          <Link to="/instructors">Instructors</Link>
-        </li>
+      <ul>
         <li>
           <Link to="/classes">Classes</Link>
         </li>
         <li>
           <Link to="/contact">Contact Us</Link>
         </li>
-      </ul> */}
+        {!loading && (
+          <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+        )}
+      </ul>
     </nav>
   );
 };

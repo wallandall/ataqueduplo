@@ -1,11 +1,16 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { createProfile } from '../../redux/actions/profile';
+import { createProfile, getCurrentProfile } from '../../redux/actions/profile';
 
-const CreateProfile = ({ createProfile, history }) => {
+const EditProfile = ({
+  profile: { profile, loading },
+  createProfile,
+  getCurrentProfile,
+  history,
+}) => {
   const [formData, setFormData] = useState({
     academy: '',
     location: '',
@@ -24,6 +29,24 @@ const CreateProfile = ({ createProfile, history }) => {
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
+  useEffect(() => {
+    getCurrentProfile();
+    setFormData({
+      academy: loading || !profile.academy ? '' : profile.academy,
+      location: loading || !profile.location ? '' : profile.location,
+      status: loading || !profile.status ? '' : profile.status,
+      skills: loading || !profile.skills ? '' : profile.skills,
+      bio: loading || !profile.bio ? '' : profile.bio,
+      //dob: loading || !profile.dob ? '' : profile.dob,
+      current_weight:
+        loading || !profile.current_weight ? '' : profile.current_weight,
+      goal_weight: loading || !profile.goal_weight ? '' : profile.goal_weight,
+      youtube: loading || !profile.social ? '' : profile.social.youtube,
+      twitter: loading || !profile.social ? '' : profile.social.twitter,
+      instagram: loading || !profile.social ? '' : profile.social.instagram,
+      facebook: loading || !profile.social ? '' : profile.social.facebook,
+    });
+  }, [loading]);
   const {
     academy,
     location,
@@ -44,7 +67,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData, history, true);
   };
 
   return (
@@ -58,8 +81,8 @@ const CreateProfile = ({ createProfile, history }) => {
         <div className="form-group">
           <select name="status" value={status} onChange={(e) => onChange(e)}>
             <option value="0">* Select Status</option>
-            <option value="Developer">Private</option>
-            <option value="Junior Developer">Public</option>
+            <option value="Private">Private</option>
+            <option value="Public">Public</option>
           </select>
           <small className="form-text">
             Make your profile Public to share with other students or Private to
@@ -97,7 +120,7 @@ const CreateProfile = ({ createProfile, history }) => {
             onChange={(e) => onChange(e)}
           />
           <small className="form-text">
-            Please use comma separated values (eg. Judo, Standup, No Gi etc)
+            Please use comma separated values (eg. Judo,Standup,No Gi etc)
           </small>
         </div>
         <div className="form-group">
@@ -109,18 +132,20 @@ const CreateProfile = ({ createProfile, history }) => {
           ></textarea>
           <small className="form-text">Tell us a little about yourself</small>
         </div>
-        {/* <div className="form-group">
-          <input
-            type="date"
-            placeholder="Date of Birth"
-            name="dob"
-            value={dob}
-            onChange={(e) => onChange(e)}
-          />
-          <small className="form-text">
-            Your date of birth will not be visible to other members
-          </small>
-        </div> */}
+        {/* {
+          <div className="form-group">
+            <input
+              type="date"
+              placeholder="Date of Birth"
+              name="dob"
+              value={Moment(new Date(dob)).format('MM-DD-YYYY')}
+              onChange={(e) => onChange(e)}
+            />
+            <small className="form-text">
+              Your date of birth will not be visible to other members
+            </small>
+          </div>
+        } */}
         <div className="form-group">
           <input
             type="number"
@@ -213,8 +238,16 @@ const CreateProfile = ({ createProfile, history }) => {
   );
 };
 
-CreateProfile.propTypes = {
+EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
 };
 
-export default connect(null, { createProfile })(withRouter(CreateProfile));
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+});
+
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+  withRouter(EditProfile)
+);
