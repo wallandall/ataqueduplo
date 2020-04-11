@@ -1,0 +1,29 @@
+.belt_container {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10px;
+}
+
+.belt_container > * {
+  flex: 1 100%;
+}
+
+.belt {
+  display: flex;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-bottom: solid 1px var(--primary-color);
+}
+.belt_image {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.belt_text {
+  margin-left: 20px;
+  width: 80%;
+}
+
+.belt_button {
+  float: right;
+}

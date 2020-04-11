@@ -6,6 +6,7 @@ import { getCurrentProfile } from '../../redux/actions/profile';
 
 import Spinner from '../../components/spinner/spinner.component';
 import DashboardActions from './dashboard-actions.components';
+import Belts from './belts.component';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -27,6 +28,7 @@ const Dashboard = ({
       {profile !== null ? (
         <Fragment>
           <DashboardActions />
+          <Belts grade={profile.grade} />
         </Fragment>
       ) : (
         <Fragment>

@@ -58,8 +58,8 @@ const CreateProfile = ({ createProfile, history }) => {
         <div className="form-group">
           <select name="status" value={status} onChange={(e) => onChange(e)}>
             <option value="0">* Select Status</option>
-            <option value="Developer">Private</option>
-            <option value="Junior Developer">Public</option>
+            <option value="Private">Private</option>
+            <option value="Public">Public</option>
           </select>
           <small className="form-text">
             Make your profile Public to share with other students or Private to
@@ -205,7 +205,7 @@ const CreateProfile = ({ createProfile, history }) => {
         )}
 
         <input type="submit" className="btn btn-primary my-1" />
-        <Link className="btn btn-light my-1" to="dashboard.html">
+        <Link className="btn btn-light my-1" to="/dashboard">
           Go Back
         </Link>
       </form>
