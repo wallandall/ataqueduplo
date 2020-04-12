@@ -48,7 +48,6 @@ router.post(
       academy,
       location,
       status,
-      user_type,
       skills,
       bio,
       dob,

@@ -57,7 +57,7 @@ const Belts = ({ grade, deleteBelt }) => {
           </Link>
         </p>
         <p>
-          <strong>Graduatio: </strong>
+          <strong>Graduation: </strong>
           {b.graduation === null ? (
             '--'
           ) : (

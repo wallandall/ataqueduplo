@@ -1,0 +1,68 @@
+.profile {
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 0.5rem;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+}
+
+.profile_thumbnail img {
+  height: 135px;
+  padding: 1.5rem;
+}
+img {
+  display: block;
+  border: 0;
+  width: 100%;
+  height: auto;
+}
+
+.profile_item-content {
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.academy {
+  position: absolute;
+  top: 110px;
+  left: 0;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.White {
+  background-color: white;
+}
+.Blue {
+  background-color: blue;
+}
+.Purple {
+  background-color: purple;
+}
+.Brown {
+  background-color: brown;
+}
+
+.Black {
+  background-color: black;
+}
+
+footer {
+  border-top: 2px solid var(--primary-color);
+  margin: 0.5rem 0 0;
+  min-height: 30px;
+  font-size: 0.5rem;
+}
