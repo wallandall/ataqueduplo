@@ -1,0 +1,12 @@
+.profile-grid {
+  grid-template-areas:
+    'top'
+    'about'
+    'exp'
+    'edu'
+    'github';
+}
+
+.belt_heading {
+  text-align: center;
+}

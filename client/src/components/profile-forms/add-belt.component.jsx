@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link, WithRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addBelt } from '../../redux/actions/profile';
@@ -108,4 +108,4 @@ AddBelt.propTypes = {
   addBelt: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addBelt })(AddBelt);
+export default connect(null, { addBelt })(withRouter(AddBelt));

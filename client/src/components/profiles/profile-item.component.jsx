@@ -38,7 +38,7 @@ const ProfileItem = ({
                 return White;
             }
           })()}
-          alt="Belt Image"
+          alt="Belt "
         />
       </picture>
 

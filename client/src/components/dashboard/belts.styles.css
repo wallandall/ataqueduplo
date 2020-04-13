@@ -8,6 +8,10 @@
   flex: 1 100%;
 }
 
+.belt_margin {
+  margin: 1rem 0;
+}
+
 .belt {
   display: flex;
   padding: 5px;
@@ -26,4 +30,5 @@
 
 .belt_button {
   float: right;
+  width: 100%;
 }

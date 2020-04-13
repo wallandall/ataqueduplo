@@ -91,7 +91,7 @@ const CreateProfile = ({ createProfile, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Skills"
+            placeholder="Skills and Intrests"
             name="skills"
             value={skills}
             onChange={(e) => onChange(e)}

@@ -46,7 +46,7 @@ const EditProfile = ({
       instagram: loading || !profile.social ? '' : profile.social.instagram,
       facebook: loading || !profile.social ? '' : profile.social.facebook,
     });
-  }, [loading]);
+  }, [loading, getCurrentProfile]);
   const {
     academy,
     location,
@@ -114,7 +114,7 @@ const EditProfile = ({
         <div className="form-group">
           <input
             type="text"
-            placeholder="Skills"
+            placeholder="Skills and Intrests"
             name="skills"
             value={skills}
             onChange={(e) => onChange(e)}

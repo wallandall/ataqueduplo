@@ -5,38 +5,37 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { deleteBelt } from '../../redux/actions/profile';
 
-import Black from './belts/Black.svg';
-import Brown from './belts/Brown.svg';
-import Purple from './belts/Purple.svg';
-import Blue from './belts/Blue.svg';
-import White from './belts/White.svg';
+import Black from '../../img/belts/Black.svg';
+import Brown from '../../img/belts/Brown.svg';
+import Purple from '../../img/belts/Purple.svg';
+import Blue from '../../img/belts/Blue.svg';
+import White from '../../img/belts/White.svg';
 import './belts.styles.css';
 
 const Belts = ({ grade, deleteBelt }) => {
   const belts = grade.map((b) => (
     <div className="belt" key={b._id}>
-      <div>
-        <img
-          className="belt_image"
-          src={(() => {
-            switch (b.belt) {
-              case 'White':
-                return White;
-              case 'Blue':
-                return Blue;
-              case 'Purple':
-                return Purple;
-              case 'Brown':
-                return Brown;
-              case 'Black':
-                return Black;
-              default:
-                return White;
-            }
-          })()}
-          alt={b.belt}
-        />
-      </div>
+      <img
+        className="belt_image "
+        src={(() => {
+          switch (b.belt) {
+            case 'White':
+              return White;
+            case 'Blue':
+              return Blue;
+            case 'Purple':
+              return Purple;
+            case 'Brown':
+              return Brown;
+            case 'Black':
+              return Black;
+            default:
+              return White;
+          }
+        })()}
+        alt={b.belt}
+      />
+
       <div className="belt_text hide-sm">
         <p>
           <strong>Academy : </strong>

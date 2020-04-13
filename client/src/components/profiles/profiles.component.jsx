@@ -11,6 +11,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
   }, [getProfiles]);
+
   return (
     <Fragment>
       {loading ? (
@@ -46,6 +47,6 @@ Profiles.propTypes = {
 
 const mapStateToProps = (state) => ({
   profile: state.profile,
-  // auth: state.auth
+  auth: PropTypes.object.isRequired,
 });
 export default connect(mapStateToProps, { getProfiles })(Profiles);
