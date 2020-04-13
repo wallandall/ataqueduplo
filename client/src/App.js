@@ -14,6 +14,8 @@ import EditProfile from './components/profile-forms/edit-profile.component';
 import AddBelt from './components/profile-forms/add-belt.component';
 import Profiles from './components/profiles/profiles.component';
 import Profile from './components/profile/profile.component';
+import Posts from './components/posts/posts.component';
+import Post from './components/post/post.component';
 import PrivateRoute from './components/routing/private-route.component';
 
 import { Provider } from 'react-redux';
@@ -59,6 +61,8 @@ const App = () => {
                 component={EditProfile}
               />
               <PrivateRoute exact path="/add-belt" component={AddBelt} />
+              <PrivateRoute exact path="/posts" component={Posts} />
+              <PrivateRoute exact path="/posts/:id" component={Post} />
             </Switch>
           </section>
         </Fragment>

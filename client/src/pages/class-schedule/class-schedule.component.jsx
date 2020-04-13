@@ -5,6 +5,9 @@ const ClassSchedule = () => {
   return (
     <Fragment>
       <h1 className="large text-primary">Schedule</h1>
+      <p className="lead">
+        <i className="fas fa-users"></i> Join our classes
+      </p>
       <table id="classes">
         <thead>
           <tr>
