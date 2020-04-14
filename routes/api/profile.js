@@ -99,7 +99,9 @@ router.post(
 router.get('/', async (req, res) => {
   try {
     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
-
+    // console.log('###################');
+    // console.log(profiles);
+    // console.log('###################');
     res.json(profiles);
   } catch (err) {
     console.error(err.message);

@@ -25,11 +25,13 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
           </p>
           <div className="profiles">
             {profiles.length > 0 ? (
-              profiles.map((profile) =>
-                profile.status === 'Public' ? (
-                  <ProfileItem key={profile._id} profile={profile} />
-                ) : null
-              )
+              profiles
+                .sort((a, b) => (a.current_belt < b.current_belt ? 1 : -1))
+                .map((profile) =>
+                  profile.status === 'Public' ? (
+                    <ProfileItem key={profile._id} profile={profile} />
+                  ) : null
+                )
             ) : (
               <h4>No profiles found...</h4>
             )}

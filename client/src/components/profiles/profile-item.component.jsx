@@ -14,25 +14,26 @@ const ProfileItem = ({
     academy,
     location,
     skills,
-    grade, // = grade.slice(0)[0].belt,
+    current_belt,
   },
 }) => {
-  const belt = grade.slice(0)[0].belt;
+  console.log(current_belt);
+  const belt = current_belt;
   return (
     <div className="profile">
       <picture className="profile_thumbnail">
         <img
           src={(() => {
             switch (belt) {
-              case 'White':
+              case '1':
                 return White;
-              case 'Blue':
+              case '2':
                 return Blue;
-              case 'Purple':
+              case '3':
                 return Purple;
-              case 'Brown':
+              case '4':
                 return Brown;
-              case 'Black':
+              case '5':
                 return Black;
               default:
                 return White;

@@ -16,8 +16,7 @@ const ContactUs = () => {
       <h1 className="large text-primary">Contact Us</h1>
       <p className="lead">
         <i className="fas fa-envelope"></i> Contact us now and
-        <strong>set up a free class</strong>. If you have any questions,
-        suggestions, anything you might share, do not hesitate to contact us.
+        <strong> set up a free class</strong>.
       </p>
       <form className="form" onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">
